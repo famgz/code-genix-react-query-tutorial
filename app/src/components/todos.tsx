@@ -1,5 +1,11 @@
 // import { useIsFetching } from '@tanstack/react-query';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 import { Button } from '@/components/ui/button';
 import { useDeleteTodo, useUpdateTodo } from '@/services/mutations';
@@ -19,9 +25,9 @@ export default function Todos() {
     }
   }
 
-  async function handleDelete(id: number | undefined) {
+  function handleDelete(id: number | undefined) {
     if (id) {
-      await deleteTodoMutation.mutateAsync(id);
+      deleteTodoMutation.mutate(id);
     }
   }
 
@@ -30,7 +36,7 @@ export default function Todos() {
   }
 
   return (
-    <div className='grid grid-cols-2 sm:grid-cols-4 gap-2'>
+    <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2'>
       {todosQueries.map(({ data }) => {
         if (data) {
           return (
@@ -40,26 +46,26 @@ export default function Todos() {
                   <p>id: {data.id}</p>
                   <p>Title: {data.title}</p>
                 </CardTitle>
-                <div className='space-x-2'>
-                  <Button
-                    size={'icon'}
-                    variant={'outline'}
-                    onClick={() => handleMarkAsDone(data)}
-                    disabled={updateTodoMutation.isPending || data.checked}>
-                    {data.checked ? <CheckIcon /> : <ClockIcon />}
-                  </Button>
-                  <Button
-                    size={'icon'}
-                    variant={'outline'}
-                    onClick={() => handleDelete(data.id)}
-                    disabled={updateTodoMutation.isPending}>
-                    <TrashIcon />
-                  </Button>
-                </div>
               </CardHeader>
               <CardContent>
                 <p>Description: {data.description}</p>
               </CardContent>
+              <CardFooter className='justify-end gap-2'>
+                <Button
+                  size={'icon'}
+                  variant={'outline'}
+                  onClick={() => handleMarkAsDone(data)}
+                  disabled={updateTodoMutation.isPending || data.checked}>
+                  {data.checked ? <CheckIcon /> : <ClockIcon />}
+                </Button>
+                <Button
+                  size={'icon'}
+                  variant={'outline'}
+                  onClick={() => handleDelete(data.id)}
+                  disabled={updateTodoMutation.isPending}>
+                  <TrashIcon />
+                </Button>
+              </CardFooter>
             </Card>
           );
         }
