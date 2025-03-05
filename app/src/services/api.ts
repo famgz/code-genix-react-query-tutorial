@@ -8,3 +8,8 @@ export async function getTodosIds() {
   const { data } = await axiosInstance.get<Todo[]>('todos');
   return data.map((todo) => todo.id);
 }
+
+export async function getTodo(id: number) {
+  const { data } = await axiosInstance.get<Todo>(`todos/${id}`);
+  return data;
+}
