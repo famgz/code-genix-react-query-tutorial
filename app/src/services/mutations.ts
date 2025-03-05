@@ -1,4 +1,4 @@
-import { createTodo, updateTodo } from '@/services/api';
+import { createTodo, deleteTodo, updateTodo } from '@/services/api';
 import { Todo } from '@/types/todo';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
@@ -36,6 +36,22 @@ export function useUpdateTodo() {
           queryKey: ['todo', { id: variables.id }],
         });
       }
+    },
+  });
+}
+
+export function useDeleteTodo() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: number) => deleteTodo(id),
+    onSuccess: async () => {
+      console.log('deleted successfully');
+      await queryClient.invalidateQueries({
+        queryKey: ['todos'],
+      });
+    },
+    onError: () => {
+      console.log('error deleting');
     },
   });
 }

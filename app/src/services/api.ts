@@ -21,3 +21,7 @@ export async function createTodo(data: Todo) {
 export async function updateTodo(data: Todo) {
   await axiosInstance.put(`todos/${data.id}`, data);
 }
+
+export async function deleteTodo(id: number) {
+  await axiosInstance.delete(`todos/${id}`);
+}

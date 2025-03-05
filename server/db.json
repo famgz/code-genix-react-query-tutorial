@@ -1,24 +1,6 @@
 {
   "todos": [
     {
-      "title": "Foo",
-      "description": "Foo desc",
-      "id": 1,
-      "checked": true
-    },
-    {
-      "title": "Bar",
-      "description": "Bar desc",
-      "id": 2,
-      "checked": true
-    },
-    {
-      "title": "test",
-      "description": "test desc",
-      "id": 3,
-      "checked": true
-    },
-    {
       "title": "bar",
       "description": "bar desc",
       "id": 4,
@@ -29,6 +11,16 @@
       "description": "mark desc",
       "id": 5,
       "checked": true
+    },
+    {
+      "title": "Testando",
+      "description": "apenas mais um teste",
+      "id": 6
+    },
+    {
+      "title": "Testes",
+      "description": "testes desc",
+      "id": 7
     }
   ],
   "projects": [

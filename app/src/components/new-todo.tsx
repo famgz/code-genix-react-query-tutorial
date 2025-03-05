@@ -14,6 +14,7 @@ export default function NewTodo() {
 
   function handleCreateTodoSubmit(data: Todo) {
     createTodoMutation.mutate(data);
+    form.reset();
   }
 
   return (
