@@ -9,3 +9,13 @@ https://github.com/codegenixdev/project
 `npm i axios @tanstack/react-query @tanstack/react-query-devtools react-hook-form`
 
 `npm i -D @tanstack/eslint-plugin-query`
+
+`npm install tailwindcss @tailwindcss/vite`
+
+`npm install -D @types/node`
+
+`npx shadcn@latest init`
+
+`npx shadcn@latest add button`
+
+`npx shadcn@latest add card`

@@ -1,4 +1,5 @@
 // import { useIsFetching } from '@tanstack/react-query';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTodos, useTodosIds } from '../services/queries';
 
 export default function Todo() {
@@ -23,15 +24,21 @@ export default function Todo() {
         <p key={id}>id: {id}</p>
       ))}
 
-      <ul>
+      <div>
         {todosQueries.map(({ data }) => (
-          <li key={data?.id}>
-            <p>id: {data?.id}</p>
-            <p>Title: {data?.title}</p>
-            <p>Description: {data?.description}</p>
-          </li>
+          <Card key={data?.id}>
+            <CardHeader>
+              <CardTitle>
+                <p>id: {data?.id}</p>
+                <p>Title: {data?.title}</p>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Description: {data?.description}</p>
+            </CardContent>
+          </Card>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
