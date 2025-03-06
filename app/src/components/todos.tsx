@@ -31,8 +31,12 @@ export default function Todos() {
     }
   }
 
-  if (!todosQueries || todosQueries.length === 0) {
-    return <p className='text-center w-full'>No todos</p>;
+  if (todosIdsQuery.isLoading) {
+    return <p className='text-center'>Loading...</p>;
+  }
+
+  if (!todosIdsQuery.isLoading && todosQueries.length === 0) {
+    return <p className='text-center'>No todos</p>;
   }
 
   return (

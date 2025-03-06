@@ -27,6 +27,9 @@ export async function deleteTodo(id: number) {
   await axiosInstance.delete(`todos/${id}`);
 }
 
-export async function getProjects(pageParam: number) {
-  await axiosInstance.get<Project[]>(`projects?page`);
+export async function getProjects(page = 1) {
+  const { data } = await axiosInstance.get<Project[]>(
+    `projects?_page=${page}&_limit=3`
+  );
+  return data;
 }
