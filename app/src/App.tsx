@@ -1,23 +1,13 @@
-import GlobalFetching from '@/components/global-fetching';
-import NewTodo from '@/components/new-todo';
-import Todos from './components/todos';
-
-export default function App() {
+export default function HomePage() {
   return (
-    <div className='container p-6 space-y-4'>
-      <div className='flex justify-end'>
-        <GlobalFetching />
-      </div>
-      <div className='grid grid-cols-2 gap-5'>
-        <div className='space-y-4'>
-          <h2 className='text-2xl font-bold'>Todos</h2>
-          <NewTodo />
-          <Todos />
-        </div>
-        <div className='space-y-4'>
-          <h2 className='text-2xl font-bold'>Projects</h2>
-        </div>
-      </div>
+    <div className='w-lg aspect-video mx-auto mt-20'>
+      <iframe
+        className='w-full h-full'
+        src={`https://www.youtube.com/embed/3e-higRXoaM`}
+        title='YouTube Video Player'
+        frameBorder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowFullScreen></iframe>
     </div>
   );
 }

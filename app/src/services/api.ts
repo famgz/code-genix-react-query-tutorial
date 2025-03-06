@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Todo } from '../types/todo';
+import { Project } from '@/types/project';
 
 const BASE_URL = 'http://localhost:8080';
 const axiosInstance = axios.create({ baseURL: BASE_URL });
@@ -24,4 +25,8 @@ export async function updateTodo(data: Todo) {
 
 export async function deleteTodo(id: number) {
   await axiosInstance.delete(`todos/${id}`);
+}
+
+export async function getProjects(pageParam: number) {
+  await axiosInstance.get<Project[]>(`projects?page`);
 }

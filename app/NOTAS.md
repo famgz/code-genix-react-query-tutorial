@@ -23,3 +23,9 @@ https://github.com/codegenixdev/project
 `npx shadcn@latest add input`
 
 `npx shadcn@latest add label`
+
+`npx shadcn@latest add scroll-area`
+
+`npx shadcn@latest add textarea`
+
+`npm install react-router-dom`

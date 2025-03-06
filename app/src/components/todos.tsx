@@ -41,30 +41,32 @@ export default function Todos() {
         if (data) {
           return (
             <Card key={data.id}>
-              <CardHeader className='flex-row justify-between'>
-                <CardTitle>
-                  <p>id: {data.id}</p>
-                  <p>Title: {data.title}</p>
-                </CardTitle>
+              <CardHeader className=''>
+                <CardTitle className='text-center'>{data.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p>Description: {data.description}</p>
+              <CardContent className='flex-1 text-muted-foreground'>
+                {data.description}
               </CardContent>
-              <CardFooter className='justify-end gap-2'>
-                <Button
-                  size={'icon'}
-                  variant={'outline'}
-                  onClick={() => handleMarkAsDone(data)}
-                  disabled={updateTodoMutation.isPending || data.checked}>
-                  {data.checked ? <CheckIcon /> : <ClockIcon />}
-                </Button>
-                <Button
-                  size={'icon'}
-                  variant={'outline'}
-                  onClick={() => handleDelete(data.id)}
-                  disabled={updateTodoMutation.isPending}>
-                  <TrashIcon />
-                </Button>
+              <CardFooter className='justify-between'>
+                <div className='text-xs font-semibold size-7 rounded-full bg-accent flex items-center justify-center'>
+                  {data.id}
+                </div>
+                <div className='flex-center gap-2'>
+                  <Button
+                    size={'icon'}
+                    variant={'outline'}
+                    onClick={() => handleMarkAsDone(data)}
+                    disabled={updateTodoMutation.isPending || data.checked}>
+                    {data.checked ? <CheckIcon /> : <ClockIcon />}
+                  </Button>
+                  <Button
+                    size={'icon'}
+                    variant={'outline'}
+                    onClick={() => handleDelete(data.id)}
+                    disabled={updateTodoMutation.isPending}>
+                    <TrashIcon />
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
           );
